@@ -1,12 +1,10 @@
 package ru.netology.web;
 
-import io.github.bonigarcia.seljup.SeleniumExtension;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(SeleniumExtension.class)
 public class TestCartWithWebDriverManager {
     private WebDriver driver;
 
@@ -45,8 +42,8 @@ public class TestCartWithWebDriverManager {
         driver.findElement(By.cssSelector("input[type='tel']")).sendKeys("+79270000000");
         driver.findElement(By.cssSelector("span[class='checkbox__box']")).click();
         driver.findElement(By.cssSelector(".button__text")).submit();
-        String text = driver.findElement(By.cssSelector("[data-test-id]")).getText();
-        assertEquals("  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text);
+        String actual = driver.findElement(By.cssSelector("[data-test-id]")).getText();
+        assertEquals("  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actual);
     }
 
     @Test
@@ -56,8 +53,8 @@ public class TestCartWithWebDriverManager {
         driver.findElement(By.cssSelector("input[type='tel']")).sendKeys("+79270000000");
         driver.findElement(By.cssSelector("span[class='checkbox__box']")).click();
         driver.findElement(By.cssSelector(".button__text")).submit();
-        String text = driver.findElement(By.cssSelector(".input__sub")).getText();
-        assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", text);
+        String actual = driver.findElement(By.cssSelector(".input__sub")).getText();
+        assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", actual);
     }
 
     @Test
@@ -67,8 +64,8 @@ public class TestCartWithWebDriverManager {
         driver.findElement(By.cssSelector("input[type='tel']")).sendKeys("+79270000000");
         driver.findElement(By.cssSelector("span[class='checkbox__box']")).click();
         driver.findElement(By.cssSelector(".button__text")).submit();
-        String text = driver.findElement(By.cssSelector("[data-test-id]")).getText();
-        assertEquals("  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text);
+        String actual = driver.findElement(By.cssSelector("[data-test-id]")).getText();
+        assertEquals("  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actual);
     }
 
     @Test
@@ -78,8 +75,8 @@ public class TestCartWithWebDriverManager {
         driver.findElement(By.cssSelector("input[type='tel']")).sendKeys("7");
         driver.findElement(By.cssSelector("span[class='checkbox__box']")).click();
         driver.findElement(By.cssSelector(".button__text")).submit();
-        String text = driver.findElement(By.cssSelector(".input__sub")).getText();
-        assertEquals("Укажите точно как в паспорте", text);
+        String actual = driver.findElement(By.cssSelector(".input__sub")).getText();
+        assertEquals("Укажите точно как в паспорте", actual);
     }
 
     @Test
@@ -89,7 +86,7 @@ public class TestCartWithWebDriverManager {
         driver.findElement(By.cssSelector("input[type='tel']")).sendKeys("+79270000000");
         driver.findElement(By.cssSelector("span[class='checkbox__box']")).click();
         driver.findElement(By.cssSelector(".button__text")).submit();
-        String text = driver.findElement(By.cssSelector(".input__sub")).getText();
-        assertEquals("Поле обязательно для заполнения", text);
+        String actual = driver.findElement(By.cssSelector(".input__sub")).getText();
+        assertEquals("Поле обязательно для заполнения", actual);
     }
 }

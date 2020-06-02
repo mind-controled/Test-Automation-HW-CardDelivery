@@ -16,9 +16,11 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.6.1'
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
-    testCompile("io.github.bonigarcia:selenium-jupiter:3.3.4")
+    testImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    testImplementation 'org.seleniumhq.selenium:selenium-chrome-driver:3.141.59'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:4.0.0'
 }
     test {
         useJUnitPlatform()
+        systemProperty 'selenide.headless', System.getProperty('selenide.headless')
     }
